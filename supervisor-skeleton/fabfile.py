@@ -1,5 +1,5 @@
 """
-Fabfile to install supervisor in debian 
+Fabfile to install supervisor on debian 
 """
 from __future__ import with_statement
 from fabric.api import env, run,require, sudo, run, put, local, settings, cd
@@ -7,8 +7,7 @@ from fabric.contrib.files import upload_template, exists
 
 def install():
     """
-    Setup a fresh virtualenv as well as a few useful directories, then run
-    a full deployment
+    install supervisor , make required folders
     """
     sudo('aptitude install -y python-setuptools')
     #simplejson speedup need these two
