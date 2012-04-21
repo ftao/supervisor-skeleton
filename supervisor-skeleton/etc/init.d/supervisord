@@ -1,0 +1,31 @@
+# Supervisord auto-start
+#
+# description: Auto-starts supervisord
+# processname: supervisord
+# pidfile: /var/run/supervisord.pid
+
+SUPERVISORD=/usr/bin/supervisord
+SUPERVISORCTL=/usr/bin/supervisorctl
+SUPERVISOR_CONF=/etc/supervisord.conf
+
+case $1 in
+start)
+        echo -n "Starting supervisord: "
+        $SUPERVISORD -c $SUPERVISOR_CONF
+        echo
+        ;;
+stop)
+        echo -n "Stopping supervisord: "
+        $SUPERVISORCTL -c $SUPERVISOR_CONF shutdown
+        echo
+        ;;
+restart)
+        echo -n "Stopping supervisord: "
+        $SUPERVISORCTL -c $SUPERVISOR_CONF shutdown
+        echo
+        sleep 1
+        echo -n "Starting supervisord: "
+        $SUPERVISORD -c $SUPERVISOR_CONF
+        echo
+        ;;
+esac
