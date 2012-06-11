@@ -1,11 +1,19 @@
-# Supervisord auto-start
-#
-# description: Auto-starts supervisord
-# processname: supervisord
-# pidfile: /var/run/supervisord.pid
+#! /bin/bash
 
-SUPERVISORD=/usr/bin/supervisord
-SUPERVISORCTL=/usr/bin/supervisorctl
+### BEGIN INIT INFO
+## Provides:          supervisord
+## Required-Start:    
+## Required-Stop:     
+## Should-Start:      
+## Should-Stop:       
+## Default-Start:     2 3 4 5
+## Default-Stop:      0 1 6
+## Short-Description: Start and stop the supervisord process control  database server daemon
+## Description:       Control supervisord 
+### END INIT INFO
+
+SUPERVISORD=/usr/local/bin/supervisord
+SUPERVISORCTL=/usr/local/bin/supervisorctl
 SUPERVISOR_CONF=/etc/supervisord.conf
 
 case $1 in
